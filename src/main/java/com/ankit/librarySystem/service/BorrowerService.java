@@ -18,7 +18,7 @@ import com.ankitkumar.library.exception.BorrowerRegistrationException;
 import com.ankitkumar.library.exception.DuplicateEmailException;
 
 @Service
-public class BorrowerService {
+public class BorrowerService implements BorrowerServiceInterface {
 
 	@Autowired
 	private BorrowerRepository borrowerRepository;

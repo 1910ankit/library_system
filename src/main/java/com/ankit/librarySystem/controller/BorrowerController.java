@@ -21,6 +21,7 @@ import com.ankit.librarySystem.payload.ErrorResponse;
 import com.ankit.librarySystem.payload.RegisterBorrowerDTO;
 import com.ankit.librarySystem.payload.UpdateBookDTO;
 import com.ankit.librarySystem.service.BorrowerService;
+import com.ankit.librarySystem.service.BorrowerServiceInterface;
 import com.ankit.librarySystem.util.BorrowerSuccess;
 import com.ankitkumar.library.exception.BookUnavailableException;
 import com.ankitkumar.library.exception.BorrowerNotFoundException;
@@ -34,7 +35,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 public class BorrowerController {
 	
 	@Autowired
-	BorrowerService borrowerService;
+	BorrowerServiceInterface borrowerService;
 	
 	@ExceptionHandler(Exception.class)
 	protected ResponseEntity<Object> handleGlobalException(Exception ex, WebRequest request) {

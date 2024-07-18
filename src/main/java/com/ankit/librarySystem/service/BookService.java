@@ -13,7 +13,7 @@ import com.ankitkumar.library.exception.InconsistentBookException;
 
 
 @Service
-public class BookService {
+public class BookService implements BookServiceInterface {
 	
 	@Autowired
 	private BookRepository bookRepository;

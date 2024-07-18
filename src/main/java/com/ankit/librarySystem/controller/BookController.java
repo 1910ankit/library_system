@@ -5,6 +5,7 @@ import com.ankit.librarySystem.model.Borrower;
 import com.ankit.librarySystem.payload.BookViewDTO;
 import com.ankit.librarySystem.payload.RegisterBookDTO;
 import com.ankit.librarySystem.service.BookService;
+import com.ankit.librarySystem.service.BookServiceInterface;
 import com.ankit.librarySystem.util.BookSuccess;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -32,7 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class BookController {
 
 	@Autowired
-	private BookService bookService;
+	private BookServiceInterface bookService;
 
 	@PostMapping(value = "/registerBook", produces = "application/json")
 	@ResponseStatus(HttpStatus.CREATED)
@@ -44,6 +45,7 @@ public class BookController {
 			book.setAuthor(bookDTO.getAuthor());
 			book.setIsbn(bookDTO.getIsbn());
 			book.setTitle(bookDTO.getTitle());
+			book.setAvailable(true);
 			book = bookService.registerBook(book);
 			return ResponseEntity.ok(BookSuccess.BOOK_REGISTERED_SUCCESS.toString());
 
