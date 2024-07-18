@@ -29,6 +29,7 @@ public class BookService implements BookServiceInterface {
 			validateBookData(book);
 			Optional<Book> existingBooks = bookRepository.findByIsbn(book.getIsbn());   
 			{
+				
 				// Ensure consistency for books with the same ISBN
 				boolean isConsistent = existingBooks.stream()
 						.allMatch(existingBook -> existingBook.getTitle().equals(book.getTitle())
